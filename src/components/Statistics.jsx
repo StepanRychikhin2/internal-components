@@ -11,6 +11,9 @@ class Stast extends Component {
     }
     addGood = () => {
         this.setState({ good: this.state.good + 1 })
+        // const content = document.getElementById('content');
+        // console.log(content)
+        // content.classList.toggle('hidden');
     }
     addNaturel = () => {
         this.setState({ natural: this.state.natural + 1 })
@@ -18,6 +21,25 @@ class Stast extends Component {
     addBad = () => {
         this.setState({ bad: this.state.bad + 1 })
     }
+    emoji = (num) => {
+        if (num >= 80 ) {
+            return "🥰";
+        }
+       else if (num >= 60 && num < 80) {
+            return "😀";
+        } else if (num < 60 && num > 40) {
+            return "😑";
+        } else if (num <= 40 && num >= 30) {
+            return "😦";
+        } else if (num <= 30 && num > 15) {
+            return "😥";
+        } else if (num <= 15) {
+            return "😭"
+        }
+    }
+
+
+
 
     render() {
         const { good, natural, bad } = this.state;
@@ -26,19 +48,25 @@ class Stast extends Component {
             let Total = good + natural + bad;
             const positive = good;
             return Total === 0 ? 0 : (positive / Total) * 100;
-          }
-          
+        }
+
         return (
 
             <>
-                <button onClick={() => this.addGood()} >good</button>
-                <button onClick={() => this.addNaturel()}>natular</button>
-                <button onClick={() => this.addBad()}>bad</button>
-                <p>good: <span>{good}</span></p>
-                <p>natural: <span>{natural}</span></p>
-                <p>bad: <span>{bad}</span></p>
-                <p>Total: <span>{good + natural + bad}</span></p>
-                <p>Feedback positive: <span>{Math.trunc(positiveFeedback())}%</span></p>
+            <div className={styled.list}>
+            <button className={styled.btn} onClick={() => this.addGood()} >good</button>
+                <button className={styled.btn} onClick={() => this.addNaturel()}>natular</button>
+                <button className={styled.btn} onClick={() => this.addBad()}>bad</button>
+            </div>
+               
+                <p className={styled.text} >good: <span>{good}</span>😀</p>
+                <p className={styled.text}>natural: <span>{natural}</span>😑</p>
+                <p className={styled.text}>bad: <span>{bad}</span>😭</p>
+                <p className={styled.text}>Total: <span>{good + natural + bad}</span></p>
+                <p className={styled.text}>Feedback positive: <span>{Math.trunc(positiveFeedback())}%</span>{this.emoji(Math.trunc(positiveFeedback()))}</p>
+           
+           
+                {/* <p id="content" className={styled.hhh}>😭</p> */}
             </>
         )
     }

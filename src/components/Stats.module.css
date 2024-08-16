@@ -1,0 +1,33 @@
+.btn {
+    border: 0;
+    border-radius: 7px;
+    color: rgb(147, 147, 147);
+    background-color: rgb(66, 3, 133);
+
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+font-size: 20px;
+text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+/* .list {
+    
+} */
+.text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* .hhh {
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+    font-size: 30px;
+}
+
+
+.hhh.hidden {
+    opacity: 0;
+
+} */
