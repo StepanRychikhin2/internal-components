@@ -6,7 +6,7 @@ class Stast extends Component {
 
     state = {
         good: 0,
-        natural: 0,
+        neutral: 0,
         bad: 0,
     }
     addGood = () => {
@@ -16,7 +16,7 @@ class Stast extends Component {
         // content.classList.toggle('hidden');
     }
     addNaturel = () => {
-        this.setState({ natural: this.state.natural + 1 })
+        this.setState({ neutral: this.state.neutral + 1 })
     }
     addBad = () => {
         this.setState({ bad: this.state.bad + 1 })
@@ -42,10 +42,10 @@ class Stast extends Component {
 
 
     render() {
-        const { good, natural, bad } = this.state;
+        const { good, neutral, bad } = this.state;
 
         function positiveFeedback() {
-            let Total = good + natural + bad;
+            let Total = good + neutral + bad;
             const positive = good;
             return Total === 0 ? 0 : (positive / Total) * 100;
         }
@@ -55,14 +55,14 @@ class Stast extends Component {
             <>
             <div className={styled.list}>
             <button className={styled.btn} onClick={() => this.addGood()} >good</button>
-                <button className={styled.btn} onClick={() => this.addNaturel()}>natular</button>
+                <button className={styled.btn} onClick={() => this.addNaturel()}>neutral</button>
                 <button className={styled.btn} onClick={() => this.addBad()}>bad</button>
             </div>
                
                 <p className={styled.text} >good: <span>{good}</span>😀</p>
-                <p className={styled.text}>natural: <span>{natural}</span>😑</p>
+                <p className={styled.text}>neutral: <span>{neutral}</span>😑</p>
                 <p className={styled.text}>bad: <span>{bad}</span>😭</p>
-                <p className={styled.text}>Total: <span>{good + natural + bad}</span></p>
+                <p className={styled.text}>Total: <span>{good + neutral + bad}</span></p>
                 <p className={styled.text}>Feedback positive: <span>{Math.trunc(positiveFeedback())}%</span>{this.emoji(Math.trunc(positiveFeedback()))}</p>
            
            
